@@ -8,7 +8,7 @@ class Game:
     def score(self):
         total = 0
         i = 0
-        for _ in range(10):
+        for _ in range(9):
             if self._is_strike(i):
                 frame_score = 10 + self._rolls[i + 1] + self._rolls[i + 2]
                 i += 1
@@ -18,6 +18,7 @@ class Game:
                     frame_score += self._rolls[i + 2]
                 i += 2
             total += frame_score
+        total += sum(self._rolls[i:])
         return total
 
     def _is_strike(self, i):
